@@ -34,31 +34,36 @@ export const quickTrans = [
     bgColor: "#fedadb",
     name: "Abigail",
     phone: 8065088147,
-    bank: "Opay"
+    bank: "Opay",
+    image: require(`@/public/pimg/four.png`)
   },
   {
     bgColor: "#1eb364",
     name: "Eunice",
     phone: 8065088147,
-    bank: "Moniepoint"
+    bank: "Moniepoint",
+    image: require(`@/public/pimg/seven.png`)
   },
   {
     bgColor: "#e9b275",
     name: "Gabriel",
     phone: 8065088147,
-    bank: "Access bank"
+    bank: "Access bank",
+    image: require(`@/public/pimg/three.png`)
   },
   {
     bgColor: "#968ced",
     name: "Oluchi",
     phone: 8065088147,
-    bank: "Kuda"
+    bank: "Kuda",
+    image: require(`@/public/pimg/two.png`)
   },
   {
     bgColor: "#f6ae8b",
     name: "Timi",
     phone: 8065088147,
-    bank: "Opay"
+    bank: "Opay",
+    image: require(`@/public/pimg/six.png`)
   },
 ];
 
@@ -69,7 +74,8 @@ export const recentTrans= [
     timeHr: 10,
     timeMin: 42,
     amount: 800,
-    status: "Sent"
+    status: "Sent",
+    image: require(`@/public/pimg/three.png`)
   },
     {
     bgColor: "#968ced",
@@ -77,7 +83,8 @@ export const recentTrans= [
     timeHr: 17,
     timeMin: 12,
     amount: 200,
-    status: "Received"
+    status: "Received",
+    image: require(`@/public/pimg/two.png`)
   },
     {
     bgColor: "#1eb364",
@@ -85,6 +92,7 @@ export const recentTrans= [
     timeHr: 14,
     timeMin: 55,
     amount: 1200,
-    status: "Sent"
+    status: "Sent",
+    image: require(`@/public/pimg/seven.png`)
   },
 ]

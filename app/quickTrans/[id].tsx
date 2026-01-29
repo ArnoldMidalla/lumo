@@ -1,11 +1,18 @@
 import { quickTrans } from "@/data";
 import { useLocalSearchParams } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { ChevronDown, CreditCard } from "lucide-react-native";
-import { useState } from "react";
-import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import { useEffect, useState } from "react";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import TopBar from "../components/topBar";
-import { StatusBar } from "expo-status-bar";
 
 export default function Send() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -17,15 +24,25 @@ export default function Send() {
 
   const [sr, setSr] = useState<string>();
 
+  let text = "Enter amount";
+  let textColor = "black";
+  if (val > 0 && val < 50) {
+    text = "Amount too low";
+    textColor = "red";
+  } else if (val >= 50) {
+    text = `Sending $${val} to ${item?.name}`;
+    textColor = "green";
+  }
+
   return (
     <SafeAreaView className="bg-background flex-1">
-      <StatusBar style="dark"/>
+      <StatusBar style="dark" />
       <ScrollView className="flex-1 px-6">
         <View
           className="flex flex-col gap-8 pt-6"
           style={{ paddingBottom: 200 }}
         >
-      <TopBar title="Send money" />
+          <TopBar title="Send money" />
           <View
             className="flex-1 bg-white flex flex-col gap-2"
             style={{ borderRadius: 18, padding: 16 }}
@@ -33,13 +50,13 @@ export default function Send() {
             <Text className="font-dmsans6 tracking-tighter">To:</Text>
             <View className="flex flex-row justify-between">
               <View className="flex flex-row gap-2">
-                <View
+                <Image
                   className="rounded-full"
                   style={{
-                    backgroundColor: item?.bgColor,
                     height: 36,
                     width: 36,
                   }}
+                  source={item?.image}
                 />
                 <View>
                   <Text className="font-dmsans6 tracking-tighter">
@@ -71,8 +88,8 @@ export default function Send() {
               </Text>
               <TextInput
                 textAlign="center"
-                placeholder="900"
-                maxLength={6}
+                placeholder="100"
+                maxLength={7}
                 keyboardType="numeric"
                 inputMode="numeric"
                 style={{ fontSize: 30, fontFamily: "DMSans_400Regular" }}
@@ -82,7 +99,6 @@ export default function Send() {
             <Text className="font-dmsans6 tracking-tighter opacity-60">
               Enter amount {val}
             </Text>
-            {/* <Pressable onPress={()=>setVal(50)}><Text>50</Text></Pressable> */}
           </View>
 
           <View className="flex flex-row gap-2">
@@ -121,13 +137,13 @@ export default function Send() {
                     className="flex flex-row gap-3 items-center"
                     style={{ gap: 12 }}
                   >
-                    <View
+                    <Image
                       className="rounded-full"
                       style={{
-                        backgroundColor: qt.bgColor,
                         height: 44,
                         width: 44,
                       }}
+                      source={qt.image}
                     />
                     <View className="flex flex-col">
                       <Text className="font-dmsans6 tracking-tighter">

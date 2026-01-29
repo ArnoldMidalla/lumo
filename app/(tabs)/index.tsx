@@ -207,13 +207,21 @@ export default function index() {
                   //   router.push("/quickTrans/[id]")
                   // }
                 >
-                  <View
+                  {/* <View
                     className="rounded-full"
                     style={{
                       backgroundColor: qt.bgColor,
                       height: 40,
                       width: 40,
                     }}
+                  /> */}
+                  <Image
+                    className="rounded-full"
+                    style={{
+                      height: 40,
+                      width: 40,
+                    }}
+                    source={qt.image}
                   />
                   <Text className="font-dmsans6 tracking-tighter">
                     {qt.name}
@@ -240,13 +248,13 @@ export default function index() {
               {recentTrans.map((rt) => (
                 <View key={rt.name} className="flex flex-row justify-between">
                   <View className="flex flex-row gap-2">
-                    <View
+                    <Image
                       className="rounded-full"
                       style={{
-                        backgroundColor: rt.bgColor,
                         height: 40,
                         width: 40,
                       }}
+                      source={rt.image}
                     />
                     <View className="flex flex-col">
                       <Text className="font-dmsans7 tracking-tight">
