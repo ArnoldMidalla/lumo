@@ -1,12 +1,12 @@
 import { useRouter } from "expo-router";
-import { ChevronLeft } from "lucide-react-native";
-import { Pressable, Text, View } from "react-native";
+import { ChevronDown, ChevronLeft } from "lucide-react-native";
+import { Image, Pressable, Text, View } from "react-native";
 
 export default function TopBar({ title }: { title: string }) {
   const router = useRouter();
   return (
-    <View className="flex flex-row justify-between items-center px-6">
-      <View style={{ minWidth: 42 }}>
+    <View className="flex flex-row justify-between items-center">
+      <View style={{ width: 70 }}>
         <Pressable
           className="bg-white rounded-full border-[1px] border-neutral-300"
           onPress={() => router.back()}
@@ -16,11 +16,22 @@ export default function TopBar({ title }: { title: string }) {
         </Pressable>
       </View>
       <View className="flex flex-row justify-center items-center flex-1 gap-1">
-        <Text className="font-dmsans6 tracking-tighter text-center" style={{fontSize: 18}}>
+        <Text
+          className="font-dmsans6 tracking-tighter text-center"
+          style={{ fontSize: 18 }}
+        >
           {title}
         </Text>
       </View>
-      <View style={{ minWidth: 42 }}></View>
+      <View style={{ width: 70 }}>
+        <Pressable className="bg-white rounded-full flex flex-row items-center justify-center gap-1 py-2">
+          <Image
+            source={require("@/public/us_flag.png")}
+            className="rounded-full w-6 h-6"
+          />
+          <ChevronDown size={18} strokeWidth={2.2} />
+        </Pressable>
+      </View>
     </View>
   );
 }

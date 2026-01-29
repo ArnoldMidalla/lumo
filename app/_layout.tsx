@@ -28,6 +28,7 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="send/page" options={{ headerShown: false }} />
+      <Stack.Screen name="quickTrans/[id]" options={{ headerShown: false }} />
     </Stack>
   );
 }
