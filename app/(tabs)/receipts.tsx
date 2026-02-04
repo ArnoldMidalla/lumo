@@ -5,8 +5,9 @@ import TopBar from "../components/topBar";
 export default function Receipts() {
   return (
     <SafeAreaView className="bg-background flex-1 pt-6">
-      <TopBar title="Transaction history" />
-      <ScrollView className="flex-1 px-6"></ScrollView>
+      <ScrollView className="flex-1 px-6">
+        <TopBar title="Transaction history" tr />
+      </ScrollView>
     </SafeAreaView>
   );
 }

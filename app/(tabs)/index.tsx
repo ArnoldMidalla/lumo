@@ -68,7 +68,7 @@ export default function index() {
     <SafeAreaView className="flex-1 bg-background">
       <StatusBar style="dark" animated />
 
-      <ScrollView className="flex-1 px-6">
+      <ScrollView className="flex-1 px-6" showsVerticalScrollIndicator={false} >
         <View
           className="flex flex-col gap-8 pt-6"
           style={{ paddingBottom: 200 }}
@@ -207,14 +207,6 @@ export default function index() {
                   //   router.push("/quickTrans/[id]")
                   // }
                 >
-                  {/* <View
-                    className="rounded-full"
-                    style={{
-                      backgroundColor: qt.bgColor,
-                      height: 40,
-                      width: 40,
-                    }}
-                  /> */}
                   <Image
                     className="rounded-full"
                     style={{
@@ -257,7 +249,7 @@ export default function index() {
                       source={rt.image}
                     />
                     <View className="flex flex-col">
-                      <Text className="font-dmsans7 tracking-tight">
+                      <Text className="font-dmsans6 tracking-tight">
                         {rt.name}
                       </Text>
                       <Text className="font-dmsans6 tracking-tight opacity-60 text-sm">
@@ -269,12 +261,12 @@ export default function index() {
                     className="flex flex-col"
                     style={{ alignItems: "flex-end" }}
                   >
-                    <Text className="font-dmsans7 tracking-tighter text-right">
+                    <Text className="font-dmsans6 tracking-tighter text-right">
                       {rt.status === "Sent" ? "-" : "+"}
                       {"$" + rt.amount}
                     </Text>
                     <Text
-                      className="font-dmsans7 tracking-tighter"
+                      className="font-dmsans6 tracking-tighter"
                       style={{
                         color: rt.status === "Sent" ? "#ff4d4d" : "#1eb364",
                       }}
@@ -287,7 +279,7 @@ export default function index() {
             </View>
           </View>
 
-          <AnimatedStyleUpdateExample />
+          {/* <AnimatedStyleUpdateExample /> */}
         </View>
       </ScrollView>
     </SafeAreaView>

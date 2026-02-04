@@ -2,7 +2,7 @@ import { useRouter } from "expo-router";
 import { ChevronDown, ChevronLeft } from "lucide-react-native";
 import { Image, Pressable, Text, View } from "react-native";
 
-export default function TopBar({ title }: { title: string }) {
+export default function TopBar({ title, tr }: { title: string; tr?: boolean }) {
   const router = useRouter();
   return (
     <View className="flex flex-row justify-between items-center">
@@ -24,13 +24,15 @@ export default function TopBar({ title }: { title: string }) {
         </Text>
       </View>
       <View style={{ width: 70 }}>
-        <Pressable className="bg-white rounded-full flex flex-row items-center justify-center gap-1 py-2">
-          <Image
-            source={require("@/public/us_flag.png")}
-            className="rounded-full w-6 h-6"
-          />
-          <ChevronDown size={18} strokeWidth={2.2} />
-        </Pressable>
+        {tr && (
+          <Pressable className="bg-white rounded-full flex flex-row items-center justify-center gap-1 py-2">
+            <Image
+              source={require("@/public/us_flag.png")}
+              className="rounded-full w-6 h-6"
+            />
+            <ChevronDown size={18} strokeWidth={2.2} />
+          </Pressable>
+        )}
       </View>
     </View>
   );
