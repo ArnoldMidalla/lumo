@@ -1,12 +1,7 @@
 import { quickTrans } from "@/data";
 import { useLocalSearchParams } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import {
-  ArrowLeftRight,
-  ChevronDown,
-  CreditCard,
-  Send,
-} from "lucide-react-native";
+import { ChevronDown, CreditCard, Send } from "lucide-react-native";
 import { useEffect, useState } from "react";
 import {
   Image,
@@ -19,19 +14,20 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import TopBar from "../components/topBar";
 
-import { BlurView } from "expo-blur";
-import { Modal } from "react-native";
 import ConfirmTrans from "../components/confirmTrans";
+import SuccessTrans from "../components/successTrans";
 
 export default function SendPage() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const item = quickTrans.find((p) => p.name === id);
+  const user = quickTrans.find((p) => p.name === id);
 
   const presetVal = [50, 100, 200, 300, 500];
 
   const [val, setVal] = useState(0);
   const [sr, setSr] = useState<string>();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const [showSuccessModal2, setShowSuccessModal2] = useState(false);
 
   // Derive these values instead of using state
   let text = "Enter amount";
@@ -44,14 +40,16 @@ export default function SendPage() {
     text = "Amount too low";
     textColor = "red";
   } else if (val >= 50) {
-    text = `Sending $${val} to ${item?.name}`;
+    text = `Sending $${val} to ${user?.name}`;
     textColor = "green";
     disabledBtnBgColor = "#004efe";
     disabledBtnTextColor = "white";
     isDisabled = false;
   }
 
-  let serviceFee = val * 0.887
+  let serviceFee = val * 0.0147;
+
+  let total = val + serviceFee;
 
   // auto close after 3 secs
   useEffect(() => {
@@ -87,14 +85,14 @@ export default function SendPage() {
                     height: 36,
                     width: 36,
                   }}
-                  source={item?.image}
+                  source={user?.image}
                 />
                 <View>
                   <Text className="font-dmsans6 tracking-tighter">
-                    {item?.name}
+                    {user?.name}
                   </Text>
                   <Text className="font-dmsans5 opacity-70 text-sm tracking-tight">
-                    {item?.phone}
+                    {user?.phone}
                   </Text>
                 </View>
               </View>
@@ -228,7 +226,24 @@ export default function SendPage() {
         </View>
       </ScrollView>
 
-      <ConfirmTrans showSuccessModal={showSuccessModal} setShowSuccessModal={setShowSuccessModal} item={item} val={val} serviceFee={serviceFee} />
+      <ConfirmTrans
+        showSuccessModal={showSuccessModal}
+        setShowSuccessModal={setShowSuccessModal}
+        setShowSuccessModal2={setShowSuccessModal2}
+        user={user}
+        val={val}
+        serviceFee={serviceFee}
+        total={total}
+      />
+
+      <SuccessTrans
+        showSuccessModal2={showSuccessModal2}
+        setShowSuccessModal2={setShowSuccessModal2}
+        user={user}
+        val={val}
+        serviceFee={serviceFee}
+        total={total}
+      />
     </SafeAreaView>
   );
 }
