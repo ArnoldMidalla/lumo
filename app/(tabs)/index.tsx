@@ -68,7 +68,7 @@ export default function index() {
     <SafeAreaView className="flex-1 bg-background">
       <StatusBar style="dark" animated />
 
-      <ScrollView className="flex-1 px-6" showsVerticalScrollIndicator={false} >
+      <ScrollView className="flex-1 px-6" showsVerticalScrollIndicator={false}>
         <View
           className="flex flex-col gap-8 pt-6"
           style={{ paddingBottom: 200 }}

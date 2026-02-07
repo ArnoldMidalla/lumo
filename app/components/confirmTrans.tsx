@@ -10,7 +10,7 @@ export default function ConfirmTrans({
   user,
   val,
   serviceFee,
-  total
+  total,
 }: {
   showSuccessModal: boolean;
   setShowSuccessModal: (val: boolean) => void;
@@ -18,7 +18,7 @@ export default function ConfirmTrans({
   user: any;
   val: number;
   serviceFee: number;
-  total: number
+  total: number;
 }) {
   return (
     <Modal
@@ -80,7 +80,7 @@ export default function ConfirmTrans({
                   </Text>
                 </View>
               </View>
-              
+
               <View className="flex flex-row justify-center">
                 <ArrowLeftRight color={"#004efe"} />
               </View>

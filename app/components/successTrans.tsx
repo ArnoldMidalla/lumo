@@ -33,7 +33,7 @@ export default function SuccessTrans({
   //   setCopiedText(text);
   // };
 
-  const router = useRouter()
+  const router = useRouter();
 
   const date = new Date();
 
@@ -54,7 +54,7 @@ export default function SuccessTrans({
 
   console.log(finalString); // "10 September 2025 10:35 AM"
 
-    // Default locale format (varies by browser/region, e.g., "2:05:30 PM")
+  // Default locale format (varies by browser/region, e.g., "2:05:30 PM")
   // console.log(date.toLocaleTimeString());
 
   // Specific format (e.g., "14:05" in 24-hour format for UK English)
@@ -145,9 +145,7 @@ export default function SuccessTrans({
               </Text>
             </View>
 
-            <View>
-
-            </View>
+            <View></View>
 
             <View className="flex flex-row gap-4">
               <Pressable className="rounded-2xl flex-1 flex flex-row justify-center bg-[#004efe] py-3">
@@ -155,7 +153,13 @@ export default function SuccessTrans({
                   Download receipt
                 </Text>
               </Pressable>
-              <Pressable className="rounded-2xl flex-1 flex flex-row justify-center bg-[#d4e1fa] py-3" onPress={() => {setShowSuccessModal2(false); router.push("/(tabs)")}}>
+              <Pressable
+                className="rounded-2xl flex-1 flex flex-row justify-center bg-[#d4e1fa] py-3"
+                onPress={() => {
+                  setShowSuccessModal2(false);
+                  router.push("/(tabs)");
+                }}
+              >
                 <Text className="tracking-tighter font-dmsans6 text-[#004efe]">
                   Done
                 </Text>
