@@ -32,7 +32,7 @@ export default function ConfirmTrans({
         tint="dark"
         className="flex-1 justify-center items-center"
 
-    // specifically for android to do bg blur. apparently a bit performance intensive
+        // specifically for android to do bg blur. apparently a bit performance intensive
         experimentalBlurMethod="dimezisBlurView"
       >
         {/* tap outside to close */}
